@@ -105,8 +105,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <span className="text-[10px] text-gray-500 block uppercase font-mono">GitHub Profile</span>
-                    <a href="https://github.com/chanduuu8971" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-fuchsia-400 transition-colors font-mono text-xs">
-                      github.com/chanduuu8971
+                    <a href="https://github.com/chandrashekar-404" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-fuchsia-400 transition-colors font-mono text-xs">
+                      github.com/chandrashekar-404
                     </a>
                   </div>
                 </li>
@@ -116,9 +116,9 @@ const Contact = () => {
                     <Linkedin className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] text-gray-500 block uppercase font-mono">LinkedIn Connection</span>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-colors font-mono text-xs">
-                      linkedin.com
+                    <span className="text-[10px] text-gray-500 block uppercase font-mono">LinkedIn Profile</span>
+                    <a href="https://www.linkedin.com/in/chandra-shekhar-131064288/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-amber-400 transition-colors font-mono text-xs">
+                      linkedin.com/in/chandra-shekhar-131064288
                     </a>
                   </div>
                 </li>

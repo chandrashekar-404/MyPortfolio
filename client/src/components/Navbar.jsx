@@ -83,7 +83,7 @@ const Navbar = () => {
 
             {/* External Github Icon */}
             <a
-              href="https://github.com"
+              href="https://github.com/chandrashekar-404"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-gray-400 hover:text-white transition-colors duration-200"
@@ -151,7 +151,7 @@ const Navbar = () => {
                 );
               })}
               <a
-                href="https://github.com"
+                href="https://github.com/chandrashekar-404"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white pl-3"

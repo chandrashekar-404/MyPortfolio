@@ -1,55 +1,61 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layout, Server, Database, Smartphone, Cloud, Info } from 'lucide-react';
+import { Code2, Layers, Cpu, MonitorSmartphone, Users } from 'lucide-react';
 
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Frontend Development',
-      icon: <Layout className="w-5 h-5 text-violet-400" />,
+      title: 'Programming Languages',
+      subtitle: 'Core programming syntax & languages',
+      icon: <Code2 className="w-5 h-5 text-violet-400" />,
       skills: [
-        { name: 'React.js', level: 90, tooltip: 'State models, Context APIs, Hooks architectures' },
-        { name: 'JavaScript (ES6+)', level: 85, tooltip: 'Asynchronous actions, closures, arrays manipulation' },
-        { name: 'HTML5 & Semantics', level: 95, tooltip: 'Accessible grids, SEO compliant structures' },
-        { name: 'CSS3 / Grid / Flex', level: 90, tooltip: 'Responsive layouts, custom variables layout' },
-        { name: 'Tailwind CSS', level: 92, tooltip: 'Utility-first variables, v4 components styling' }
+        { name: 'C', desc: 'Procedural programming, structured logic, and foundational memory concepts' },
+        { name: 'C++', desc: 'Object-oriented structures, algorithmic efficiency, and standard library concepts' },
+        { name: 'Python', desc: 'Scripting, backend automation workflows, and AI agent logic' },
+        { name: 'Java', desc: 'Object-oriented programming, classes, inheritance, and application logic' },
+        { name: 'JavaScript', desc: 'Modern ES6+ syntax, asynchronous operations, React components, and Node.js' }
       ]
     },
     {
-      title: 'Backend Engineering',
-      icon: <Server className="w-5 h-5 text-cyan-400" />,
+      title: 'Computer Science Fundamentals',
+      subtitle: 'Core engineering concepts',
+      icon: <Cpu className="w-5 h-5 text-emerald-400" />,
       skills: [
-        { name: 'Node.js', level: 85, tooltip: 'Async runtimes, filesystem APIs, stream pipes' },
-        { name: 'Express.js', level: 88, tooltip: 'Routing gateway, error catch handlers middleware' },
-        { name: 'REST APIs', level: 90, tooltip: 'JSON contracts, endpoint versioning structures' },
-        { name: 'JWT Authentication', level: 85, tooltip: 'Secure token signing, state payload cookies' }
+        { name: 'Object-Oriented Programming (OOP)', desc: 'Encapsulation, inheritance, polymorphism, and abstraction principles' },
+        { name: 'Data Structures & Algorithms (DSA)', desc: 'Searching, sorting, linear & non-linear data structures, and computational thinking' },
+        { name: 'Database Management Systems (DBMS)', desc: 'Relational data modeling, SQL queries, Oracle PL/SQL, and normalization' }
       ]
     },
     {
-      title: 'Database Paradigms',
-      icon: <Database className="w-5 h-5 text-emerald-400" />,
+      title: 'Frameworks & Technologies',
+      subtitle: 'Web, mobile & enterprise technologies',
+      icon: <Layers className="w-5 h-5 text-cyan-400" />,
       skills: [
-        { name: 'MongoDB / Mongoose', level: 82, tooltip: 'Document stores, indexes mapping, schemas validation' },
-        { name: 'MySQL', level: 80, tooltip: 'Relational mapping joins, InnoDB locking queries' }
+        { name: 'Spring Boot', desc: 'Modular Java enterprise backend framework for building RESTful microservices' },
+        { name: 'React.js', desc: 'Component-driven frontends, reactive state management, and modern web architecture' },
+        { name: 'MongoDB', desc: 'NoSQL document-oriented databases, schemas, indexes, and aggregation queries' },
+        { name: 'Flutter SDK', desc: 'Cross-platform UI toolkit for building natively compiled mobile applications' },
+        { name: 'Dio', desc: 'Powerful HTTP client for Dart/Flutter supporting interceptors, global config, and timeouts' }
       ]
     },
     {
-      title: 'Android Development',
-      icon: <Smartphone className="w-5 h-5 text-amber-400" />,
+      title: 'Development Paradigms & Ecosystems',
+      subtitle: 'Application platforms & environments',
+      icon: <MonitorSmartphone className="w-5 h-5 text-amber-400" />,
       skills: [
-        { name: 'Java', level: 82, tooltip: 'Object Oriented inheritance, threading buffers' },
-        { name: 'Android Studio', level: 80, tooltip: 'XML layouts compilation, SDK tools debugging' },
-        { name: 'Firebase', level: 75, tooltip: 'Real-time database records, auth login pipelines' }
+        { name: 'MERN Stack', desc: 'Full-stack engineering combining MongoDB, Express.js, React, and Node.js' },
+        { name: 'LAMP Stack', desc: 'Linux, Apache, MySQL, and PHP server stack environment' },
+        { name: 'Flutter Development', desc: 'Cross-platform mobile application engineering for Android and iOS' },
+        { name: 'Android using Java', desc: 'Native Android application development using Java in Android Studio' }
       ]
     },
     {
-      title: 'Cloud & Tooling',
-      icon: <Cloud className="w-5 h-5 text-fuchsia-400" />,
+      title: 'Soft Skills & Methodologies',
+      subtitle: 'Professional problem-solving & collaboration',
+      icon: <Users className="w-5 h-5 text-fuchsia-400" />,
       skills: [
-        { name: 'AWS (S3 / EC2)', level: 70, tooltip: 'Asset storage, virtual compute machine logs' },
-        { name: 'Git & Version Control', level: 90, tooltip: 'Rebase, branch flow checkout registers' },
-        { name: 'GitHub', level: 92, tooltip: 'Repository sync actions pipelines' },
-        { name: 'Docker', level: 72, tooltip: 'Container containerization, dockerfile mappings' }
+        { name: 'Communication Skills', desc: 'Clear articulation of technical ideas, collaborative discussions, and active listening' },
+        { name: 'Problem Solving Techniques', desc: 'Structured analytical thinking, systematic debugging, and algorithmic problem decomposition' }
       ]
     }
   ];
@@ -63,13 +69,13 @@ const Skills = () => {
         {/* Title */}
         <div className="mb-12 text-center md:text-left">
           <h1 className="text-4xl font-extrabold font-display text-white tracking-tight sm:text-5xl">
-            My{' '}
+            Technical{' '}
             <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
-              Technical Stack
+              Skills & Competencies
             </span>
           </h1>
-          <p className="mt-4 text-base text-gray-400 max-w-2xl font-light">
-            A granular register of languages, system architectures, database paradigms, and tools I leverage to compile software.
+          <p className="mt-4 text-base text-gray-400 max-w-2xl font-light leading-relaxed">
+            Organized categories of programming languages, computer science fundamentals, frameworks, and development environments verified from my latest resume.
           </p>
         </div>
 
@@ -81,57 +87,47 @@ const Skills = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: catIndex * 0.1 }}
-              className="glass-card rounded-2xl p-6 border border-gray-800/80 flex flex-col justify-between"
+              transition={{ duration: 0.35, delay: catIndex * 0.08 }}
+              className="glass-card rounded-2xl p-6 border border-gray-800/80 flex flex-col justify-between hover:border-violet-500/30 transition-all"
             >
               <div>
                 {/* Category Header */}
-                <div className="flex items-center space-x-3 mb-6 border-b border-gray-850 pb-4 select-none">
-                  <div className="p-2.5 rounded-lg bg-gray-900 border border-gray-800">
+                <div className="flex items-center space-x-3 mb-5 border-b border-gray-850 pb-4 select-none">
+                  <div className="p-2.5 rounded-lg bg-gray-900 border border-gray-800 shrink-0">
                     {category.icon}
                   </div>
-                  <h3 className="text-sm font-bold text-white font-display">
-                    {category.title}
-                  </h3>
+                  <div>
+                    <h3 className="text-sm font-bold text-white font-display leading-tight">
+                      {category.title}
+                    </h3>
+                    <span className="text-[10px] text-gray-500 font-mono block mt-0.5">
+                      {category.subtitle}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Skill List */}
-                <div className="space-y-4">
+                {/* Skill Items */}
+                <div className="space-y-3">
                   {category.skills.map((skill) => (
-                    <div key={skill.name} className="relative group">
-                      <div className="flex justify-between items-center text-xs font-mono mb-1.5 cursor-help">
-                        <span className="text-gray-300 font-medium flex items-center gap-1">
-                          {skill.name}
-                          <Info className="w-3 h-3 text-gray-600 group-hover:text-violet-400 transition-colors" />
-                        </span>
-                        <span className="text-gray-500">{skill.level}%</span>
-                      </div>
-                      
-                      {/* Skill Bar Background */}
-                      <div className="w-full h-1.5 rounded-full bg-gray-950/80 overflow-hidden border border-white/[0.02]">
-                        {/* Skill Bar Fill */}
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1, delay: 0.1 }}
-                          className="h-full progress-bar-fill rounded-full"
-                        />
-                      </div>
-
-                      {/* Tooltip Overlay */}
-                      <div className="absolute z-20 bottom-full left-0 mb-2.5 hidden group-hover:block bg-gray-950 border border-gray-800 text-[10px] text-gray-300 px-2.5 py-1.5 rounded-lg shadow-xl font-mono whitespace-nowrap select-none">
-                        <span className="text-cyan-400 font-bold">&raquo; </span>{skill.tooltip}
-                      </div>
+                    <div 
+                      key={skill.name} 
+                      className="p-2.5 rounded-xl bg-gray-950/60 border border-gray-900 hover:border-gray-800 transition-colors"
+                    >
+                      <span className="text-xs font-mono font-semibold text-gray-200 block">
+                        {skill.name}
+                      </span>
+                      <p className="text-[11px] text-gray-400 font-light mt-1 leading-relaxed">
+                        {skill.desc}
+                      </p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Skill Footnote */}
-              <div className="mt-6 pt-4 border-t border-gray-850 text-[9px] font-mono text-gray-650 flex justify-between select-none">
-                <span>INDEX: 0{catIndex + 1}</span>
-                <span>STATE: ACTIVE</span>
+              {/* Category Footer */}
+              <div className="mt-6 pt-3 border-t border-gray-850/60 text-[9px] font-mono text-gray-500 flex justify-between select-none">
+                <span>SECTION: 0{catIndex + 1}</span>
+                <span className="text-violet-400">RESUME VERIFIED</span>
               </div>
             </motion.div>
           ))}

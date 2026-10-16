@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
-  ArrowRight, Download, Mail, Github, Code, Server, Database, 
-  Settings, Star, GitCommit, GitPullRequest, Laptop, Terminal, ChevronDown
+  ArrowRight, Download, Mail, Github, Linkedin, Code, Server, Database, 
+  Settings, Star, GitCommit, GitPullRequest, Laptop, Terminal, ChevronDown, Smartphone, BrainCircuit
 } from 'lucide-react';
 import { visitorService } from '../services/api';
 
@@ -55,8 +55,7 @@ const MagneticButton = ({ children, className, onClick, variant = 'primary' }) =
     const { left, top, width, height } = buttonRef.current.getBoundingClientRect();
     const x = clientX - (left + width / 2);
     const y = clientY - (top + height / 2);
-    // Multiply by factors to make transition soft
-    setPosition({ x: x * 0.35, y: y * 0.35 });
+    setPosition({ x: x * 0.25, y: y * 0.25 });
   };
 
   const handleMouseLeave = () => {
@@ -85,57 +84,17 @@ const MagneticButton = ({ children, className, onClick, variant = 'primary' }) =
   );
 };
 
-// Stat Number Counter Component
-const StatNumber = ({ value }) => {
-  const [count, setCount] = useState(0);
-  const target = parseInt(value);
-  const isPercent = value.includes('%');
-  const isPlus = value.includes('+');
-
-  useEffect(() => {
-    let start = 0;
-    const end = target;
-    if (start === end) return;
-
-    let totalDuration = 1200;
-    let incrementTime = Math.abs(Math.floor(totalDuration / end));
-    if (incrementTime < 10) incrementTime = 10;
-
-    const timer = setInterval(() => {
-      start += Math.ceil(end / 80);
-      if (start >= end) {
-        clearInterval(timer);
-        setCount(end);
-      } else {
-        setCount(start);
-      }
-    }, incrementTime);
-
-    return () => clearInterval(timer);
-  }, [target]);
-
-  return (
-    <span>
-      {count}
-      {isPercent ? '%' : isPlus ? '+' : ''}
-    </span>
-  );
-};
-
 // Stat Card Component
 const StatCard = ({ label, value }) => {
-  const [active, setActive] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      onViewportEnter={() => setActive(true)}
       className="glass-card rounded-xl p-4 border border-gray-850 text-center flex flex-col justify-center select-none"
     >
-      <span className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
-        {active ? <StatNumber value={value} /> : '0'}
+      <span className="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+        {value}
       </span>
       <span className="text-[10px] text-gray-500 font-mono mt-1 block uppercase tracking-wider">{label}</span>
     </motion.div>
@@ -146,10 +105,10 @@ const StatCard = ({ label, value }) => {
 const TerminalStatusPanel = () => {
   const lines = [
     'SYSTEM STATUS  : ACTIVE',
-    'CURRENT ROLE   : MCA Student',
-    'SPECIALIZATION : Full Stack Development',
-    'FOCUS          : MERN + Android',
-    'LOCATION       : India',
+    'CURRENT ROLE   : MCA Student (BMSIT&M)',
+    'SPECIALIZATION : Software Development & AI/ML',
+    'PRIMARY STACKS : MERN Stack | Flutter | Java',
+    'LOCATION       : Bengaluru, Karnataka',
     'AVAILABILITY   : Open for Opportunities'
   ];
 
@@ -172,7 +131,7 @@ const TerminalStatusPanel = () => {
           setTypedText('');
           setCurrentLineIdx(prev => prev + 1);
         }
-      }, 25);
+      }, 20);
 
       return () => clearInterval(interval);
     }
@@ -209,7 +168,7 @@ const TerminalStatusPanel = () => {
       </div>
 
       <div className="text-[9px] text-gray-600 border-t border-gray-900/60 pt-2 mt-2">
-        DevOS Shell check: status verified
+        DevOS Shell check: verified profile telemetry
       </div>
     </div>
   );
@@ -227,41 +186,40 @@ const Home = () => {
           setVisitorCount(stats.totalHits);
         }
       } catch (err) {
-        console.warn('Could not increment visitor hits:', err);
+        // Silently handle if backend is not active
       }
     };
     recordPageView();
   }, []);
 
   const typewriterWords = [
+    'MCA Student @ BMSIT&M',
     'Software Developer',
-    'MERN Stack Developer',
-    'Android Developer',
-    'Full Stack Engineer',
-    'Problem Solver',
-    'Open Source Learner'
+    'MERN Stack & Flutter Builder',
+    'Targeting Data Science & AI/ML',
+    'Problem Solver'
   ];
 
-  const githubStats = [
-    { label: 'Commits (YTD)', value: '1,482', icon: <GitCommit className="w-4 h-4 text-violet-400" /> },
-    { label: 'Repos Stars', value: '46', icon: <Star className="w-4 h-4 text-amber-400" /> },
-    { label: 'Pull Requests', value: '124', icon: <GitPullRequest className="w-4 h-4 text-emerald-400" /> },
-    { label: 'Public Repos', value: '18', icon: <Code className="w-4 h-4 text-cyan-400" /> }
+  const profileTelemetry = [
+    { label: 'GitHub Handle', value: '@chandrashekar-404', icon: <Github className="w-4 h-4 text-violet-400" /> },
+    { label: 'Academic Standing', value: 'MCA (2025-27)', icon: <Laptop className="w-4 h-4 text-cyan-400" /> },
+    { label: 'Undergrad CGPA', value: '7.89 BCA', icon: <Star className="w-4 h-4 text-amber-400" /> },
+    { label: 'Base Location', value: 'Bengaluru, KA', icon: <Code className="w-4 h-4 text-emerald-400" /> }
   ];
 
   const techCards = [
-    { name: 'Java / Android Studio', category: 'Android', icon: <Server className="w-4 h-4 text-emerald-400" /> },
-    { name: 'React / JS / CSS3', category: 'Frontend', icon: <Laptop className="w-4 h-4 text-cyan-400" /> },
-    { name: 'Node.js / Express', category: 'Backend API', icon: <Settings className="w-4 h-4 text-amber-400" /> },
-    { name: 'MySQL / MongoDB', category: 'Database', icon: <Database className="w-4 h-4 text-violet-400" /> }
+    { name: 'MERN Stack', category: 'MongoDB, Express, React, Node', icon: <Server className="w-4 h-4 text-violet-400" /> },
+    { name: 'Flutter SDK & Dio', category: 'Cross-Platform Mobile Apps', icon: <Smartphone className="w-4 h-4 text-cyan-400" /> },
+    { name: 'Java & OOP', category: 'Core & Enterprise Architecture', icon: <Code className="w-4 h-4 text-emerald-400" /> },
+    { name: 'Python & AI Agents', category: 'Automation & Data Science', icon: <BrainCircuit className="w-4 h-4 text-amber-400" /> }
   ];
 
   const quickStats = [
-    { label: 'Projects Completed', value: '15+' },
-    { label: 'Major Applications', value: '3' },
-    { label: 'Technologies', value: '10+' },
-    { label: 'Hours of Coding', value: '1000+' },
-    { label: 'Passion', value: '100%' }
+    { label: 'Featured Projects', value: '3' },
+    { label: 'Certifications', value: '4' },
+    { label: 'Degree Track', value: 'MCA (VTU)' },
+    { label: 'Undergrad CGPA', value: '7.89' },
+    { label: 'Primary Stacks', value: 'MERN & Flutter' }
   ];
 
   const staticParticles = [
@@ -310,7 +268,7 @@ const Home = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
             </span>
-            <span>SYSTEM STATE: ACTIVE</span>
+            <span>STATUS: ACTIVE MCA STUDENT</span>
           </div>
 
           {visitorCount !== null && (
@@ -328,7 +286,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-6xl font-extrabold font-display tracking-tight text-white mb-4 select-none"
           >
-            Hi, I'm <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent text-glow">Chandrashekhar</span>
+            Hi, I'm <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent text-glow">Chandrashekhar H R</span>
           </motion.h1>
 
           <motion.div 
@@ -345,9 +303,9 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-xs sm:text-sm text-gray-400 max-w-2xl mx-auto mt-6 leading-relaxed font-light"
+            className="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto mt-6 leading-relaxed font-light"
           >
-            I build scalable web and Android applications with modern technologies including React, Node.js, Express, MongoDB, Java, Android Studio, Firebase, AWS, and REST APIs. Passionate about creating real-world software solutions.
+            MCA student at BMS Institute of Technology and Management, Bengaluru, with a strong foundation in programming, data structures, DBMS, and OOP. Developing real-world applications across Flutter, MERN stack, Java, and Python, while actively exploring opportunities in Data Science, AI/ML, and Software Development.
           </motion.p>
         </div>
 
@@ -356,11 +314,11 @@ const Home = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+          className="flex flex-wrap items-center justify-center gap-3 mb-10"
         >
           <MagneticButton 
             onClick={() => navigate('/projects')}
-            className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-xs font-mono font-semibold rounded-lg text-white bg-violet-600 hover:bg-violet-750"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-2.5 border border-transparent text-xs font-mono font-semibold rounded-lg text-white bg-violet-600 hover:bg-violet-750"
             variant="primary"
           >
             View Projects
@@ -369,19 +327,39 @@ const Home = () => {
           
           <MagneticButton 
             onClick={() => navigate('/resume')}
-            className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-2.5 border border-gray-800 text-xs font-mono font-semibold rounded-lg text-gray-300 hover:text-white bg-gray-950/60 hover:bg-gray-900/60"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-2.5 border border-gray-800 text-xs font-mono font-semibold rounded-lg text-gray-300 hover:text-white bg-gray-950/60 hover:bg-gray-900/60"
             variant="default"
           >
-            Download Resume
+            Resume
           </MagneticButton>
 
           <MagneticButton 
             onClick={() => navigate('/contact')}
-            className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-2.5 border border-cyan-800/40 text-xs font-mono font-semibold rounded-lg text-cyan-400 hover:text-white bg-cyan-950/10 hover:bg-cyan-950/30"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-5 py-2.5 border border-cyan-800/40 text-xs font-mono font-semibold rounded-lg text-cyan-400 hover:text-white bg-cyan-950/10 hover:bg-cyan-950/30"
             variant="cyan"
           >
-            Contact Me
+            Contact
           </MagneticButton>
+
+          <a 
+            href="https://github.com/chandrashekar-404" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-2.5 rounded-lg border border-gray-800 text-gray-400 hover:text-white bg-gray-950/60 hover:bg-gray-900 transition-colors"
+            aria-label="GitHub Profile"
+          >
+            <Github className="w-4 h-4" />
+          </a>
+
+          <a 
+            href="https://www.linkedin.com/in/chandra-shekhar-131064288/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-2.5 rounded-lg border border-gray-800 text-gray-400 hover:text-cyan-400 bg-gray-950/60 hover:bg-gray-900 transition-colors"
+            aria-label="LinkedIn Profile"
+          >
+            <Linkedin className="w-4 h-4" />
+          </a>
         </motion.div>
 
         {/* Quick Stats Banner */}
@@ -391,10 +369,10 @@ const Home = () => {
           ))}
         </div>
 
-        {/* Dashboard Grid (GitHub + Status + Tech) */}
+        {/* Dashboard Grid (Telemetry + Status + Tech) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          {/* GitHub statistics */}
+          {/* Telemetry card */}
           <motion.div 
             initial={{ opacity: 0, x: -15 }}
             animate={{ opacity: 1, x: 0 }}
@@ -403,13 +381,13 @@ const Home = () => {
           >
             <div className="flex items-center justify-between mb-4 border-b border-gray-900 pb-2">
               <span className="text-[10px] font-mono font-semibold text-gray-400 uppercase tracking-wider flex items-center">
-                <Github className="w-3.5 h-3.5 mr-1.5" /> git_telemetry.log
+                <Github className="w-3.5 h-3.5 mr-1.5" /> developer_profile.log
               </span>
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             </div>
             
             <div className="grid grid-cols-2 gap-3.5 my-2 select-none">
-              {githubStats.map((stat, index) => (
+              {profileTelemetry.map((stat, index) => (
                 <div key={index} className="bg-gray-950/50 p-2.5 rounded-lg border border-gray-900/50 font-mono">
                   <div className="flex items-center space-x-1.5 text-[9px] text-gray-500 mb-0.5">
                     {stat.icon}
@@ -421,7 +399,7 @@ const Home = () => {
             </div>
           </motion.div>
 
-          {/* Upgraded Terminal Status Panel */}
+          {/* Terminal Status Panel */}
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -439,7 +417,7 @@ const Home = () => {
           >
             <div className="flex items-center justify-between mb-4 border-b border-gray-900 pb-2">
               <span className="text-[10px] font-mono font-semibold text-gray-400 uppercase tracking-wider flex items-center">
-                <Code className="w-3.5 h-3.5 mr-1.5 text-cyan-400" /> modules_index.json
+                <Code className="w-3.5 h-3.5 mr-1.5 text-cyan-400" /> core_ecosystem.json
               </span>
             </div>
 
@@ -451,7 +429,7 @@ const Home = () => {
                   </span>
                   <div className="truncate">
                     <span className="block text-gray-300 font-semibold leading-tight truncate">{tech.name}</span>
-                    <span className="text-gray-600 block text-[7px] leading-tight truncate">{tech.category}</span>
+                    <span className="text-gray-500 block text-[7px] leading-tight truncate">{tech.category}</span>
                   </div>
                 </div>
               ))}

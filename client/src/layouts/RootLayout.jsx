@@ -148,60 +148,60 @@ const RootLayout = () => {
         break;
       case 'projects':
         newHistory.push({
-          text: `Registered Project Files:
-├── CissanMart (Farm-to-Community Marketplace MERN stack)
-├── Restaurant POS (Android SDK Tableside Billing System)
-├── Phantom Net (AI-Powered SOS distress steganography)
-└── DevOS Portfolio (Interactive Unix shell workstation)`,
+          text: `Verified Technical Projects:
+├── CissanMart — Field to Family (Farmer-to-Consumer Delivery App, MERN Stack & Flutter, Ongoing)
+├── MONIC — My Own Neural Intelligence Comrade (Personal AI Assistant, Python & Flutter)
+└── Phantom SOS (Full-Stack Emergency SOS with Steganography, MERN Stack)`,
           type: 'info'
         });
         navigate('/projects');
         break;
       case 'skills':
         newHistory.push({
-          text: `Technology Tree:
-├── Frontend : React, JavaScript, HTML, CSS, Tailwind CSS
-├── Backend  : Node, Express, REST API, JWT
-├── Database : MongoDB, MySQL
-├── Android  : Java, Android Studio, Firebase
-└── Cloud    : AWS, Git, GitHub, Docker`,
+          text: `Verified Technology Stack:
+├── Programming : C, C++, Python, Java, JavaScript
+├── CS Concepts : OOP, Data Structures & Algorithms (DSA), DBMS
+├── Frameworks  : Spring Boot, React.js, MongoDB, Flutter SDK, Dio
+├── Development : MERN, LAMP, Flutter, Android using Java
+└── Soft Skills : Good Communication Skills, Problem Solving Techniques`,
           type: 'info'
         });
         navigate('/skills');
         break;
       case 'education':
         newHistory.push({
-          text: `Education Timeline:
-├── MCA : BMS Institute of Technology, Bengaluru (2025-2027)
-├── BCA : Bengaluru North University (2021-2024) [CGPA: 7.89]
-└── PUC : AES National PU College (2019-2021) [Score: 79.5%]`,
+          text: `Education Milestones:
+├── MCA  : BMS Institute of Technology & Management, Bengaluru (VTU) [2025–2027]
+├── BCA  : North University, Chikkaballapura [2021–2024, CGPA: 7.89]
+├── PUC  : AES National PU College, Gauribidanuru [2019–2021, 79.5%]
+└── SSLC : Govt. High School, Gauribidanuru [2009–2019, 84%]`,
           type: 'info'
         });
         navigate('/resume');
         break;
       case 'experience':
         newHistory.push({
-          text: `Engineering Experience Ledger:
-├── Developer Operating System Portfolio (React, Node, Express, MongoDB)
-├── Bank Locker Management System (PHP, MySQL transaction row-locks)
-└── Ticket to Trek Booking Platform (PHP, SQL relational bookings)`,
+          text: `Technical Project Implementations:
+├── CissanMart — Field to Family (Farmer-to-Consumer Delivery App, MERN & Flutter, Ongoing)
+├── MONIC — My Own Neural Intelligence Comrade (Personal AI Assistant, Python & Flutter)
+└── Phantom SOS (Full-Stack Emergency SOS with Steganography, MERN Stack)`,
           type: 'info'
         });
-        navigate('/resume');
+        navigate('/projects');
         break;
       case 'resume':
-        newHistory.push({ text: 'Redirecting to PDF resume file download link...', type: 'success' });
-        window.open('/Chandrashekhar.pdf', '_blank');
+        newHistory.push({ text: 'Accessing verified ChandrashekharHR.pdf curriculum vitae...', type: 'success' });
+        window.open('/ChandrashekharHR.pdf', '_blank');
         navigate('/resume');
         break;
       case 'github':
-        newHistory.push({ text: 'Accessing secure link: github.com/chanduuu8971...', type: 'success' });
-        window.open('https://github.com/chanduuu8971', '_blank');
+        newHistory.push({ text: 'Accessing verified GitHub profile: github.com/chandrashekar-404...', type: 'success' });
+        window.open('https://github.com/chandrashekar-404', '_blank');
         navigate('/github');
         break;
       case 'linkedin':
-        newHistory.push({ text: 'Opening professional LinkedIn connector window...', type: 'success' });
-        window.open('https://linkedin.com', '_blank');
+        newHistory.push({ text: 'Opening verified LinkedIn profile: linkedin.com/in/chandra-shekhar-131064288...', type: 'success' });
+        window.open('https://www.linkedin.com/in/chandra-shekhar-131064288/', '_blank');
         break;
       case 'contact':
         newHistory.push({ text: 'Redirecting view to Contact channels page...', type: 'success' });
@@ -267,7 +267,7 @@ const RootLayout = () => {
           </div>
 
           <div className="flex items-center space-x-3 text-xs text-gray-500 font-mono">
-            <span> chandrasekhar@devos </span>
+            <span> chandrashekhar@devos </span>
           </div>
         </header>
 
